@@ -1,0 +1,33 @@
+{
+  "name": "inrage/blocks",
+  "type": "package",
+  "license": "MIT",
+  "description": "WordPress package to enable a basic block when using Blade with Sage 9",
+  "homepage": "https://github.com/inrage",
+  "authors": [
+    {
+      "name": "Pascal GAULT",
+      "email": "pascal@inrage.fr",
+      "homepage": "https://github.com/akiletour"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/inrage/sage-blocks/issues"
+  },
+  "require": {
+    "php": ">=5.6.0",
+    "composer/installers": "^1.0",
+    "wordplate/acf": "^8.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "inRage\\Blocks\\": "src/"
+    },
+    "files": [
+      "block.php"
+    ]
+  }
+}
