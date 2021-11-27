@@ -8,6 +8,12 @@ Simply create a wrapper to your block and add the fields you need.
 - PHP <= 7.2
 - Advanced Custom Fields
 
+## Installation
+
+```bash
+composer require inrage/blocks
+```
+
 ### Create a block
 
 First, create a new folder in your theme directory.
