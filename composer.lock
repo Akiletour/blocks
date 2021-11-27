@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d93a6fb0707b0fc40097d3ec70d8379",
+    "content-hash": "6fc935e366cd0dd0e24c79e771e5a874",
     "packages": [
         {
             "name": "composer/installers",
@@ -137,6 +137,10 @@
                 "zend",
                 "zikula"
             ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -211,6 +215,10 @@
                 "wordplate",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/wordplate/extended-acf/issues",
+                "source": "https://github.com/wordplate/extended-acf/tree/8.5.1"
+            },
             "time": "2020-10-22T11:45:58+00:00"
         }
     ],
@@ -221,8 +229,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
