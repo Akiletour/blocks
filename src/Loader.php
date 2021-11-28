@@ -47,7 +47,7 @@ class Loader
         $this->namespace =
             (has_filter('inrage/blocks/namespace')
                 ? apply_filters('inrage/blocks/namespace', rtrim($this->namespace))
-                : 'App\\' . $this->directoryClassname);
+                : 'App\\' . $this->directoryClassname . 's');
     }
 
     /**
@@ -58,7 +58,7 @@ class Loader
     protected function setPath()
     {
         $reflection = new \ReflectionClass('App\Controllers\App');
-        $blockPath = str_replace('Controllers', $this->directoryClassname, $reflection->getFileName());
+        $blockPath = str_replace('Controllers', $this->directoryClassname . 's', $reflection->getFileName());
         $this->path = dirname($blockPath);
     }
 

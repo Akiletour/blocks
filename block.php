@@ -32,7 +32,7 @@ function loader()
         return;
     }
 
-    $loader = new Loader('Blocks');
+    $loader = new Loader('Block');
     $container = $sage();
 
     foreach ($loader->getClassesToRun() as $class) {
@@ -42,9 +42,28 @@ function loader()
     }
 }
 
+function fieldLoader()
+{
+    // Get Sage function
+    $sage = sage();
+
+    // Return if function does not exist
+    if (!$sage) {
+        return;
+    }
+
+    $loader = new Loader('Field');
+    $container = $sage();
+
+    foreach ($loader->getClassesToRun() as $class) {
+        $container->make($class);
+    }
+}
+
 /**
  * Hooks
  */
 if (function_exists('add_action')) {
     add_action('init', __NAMESPACE__ . '\loader');
+    add_action('init', __NAMESPACE__ . '\fieldLoader');
 }
