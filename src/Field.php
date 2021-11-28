@@ -4,7 +4,7 @@ namespace inRage\Blocks;
 
 use WordPlate\Acf\Location;
 
-abstract class Fields
+abstract class Field
 {
     /**
      * @var string $title

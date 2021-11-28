@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use WordPlate\Acf\Location;
 use function App\asset_path;
 
-abstract class Block extends Fields
+abstract class Block extends Field
 {
     public $title = '';
     public $description = '';
