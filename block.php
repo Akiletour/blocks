@@ -32,7 +32,7 @@ function loader()
         return;
     }
 
-    $loader = new Loader();
+    $loader = new Loader('Blocks');
     $container = $sage();
 
     foreach ($loader->getClassesToRun() as $class) {

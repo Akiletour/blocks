@@ -9,13 +9,15 @@ class Loader
     // User
     private $namespace;
     private $path;
+    private $directoryClassname;
 
     // Internal
     private $listOfFiles;
     private $classesToRun = [];
 
-    public function __construct()
+    public function __construct($directoryClassname)
     {
+        $this->setDirectoryClassname($directoryClassname);
         $this->setNamespace();
 
         $this->setPath();
@@ -24,7 +26,6 @@ class Loader
         if (!file_exists($this->path)) {
             return;
         }
-
 
         // Set the list of files from the Controller files namespace/path
         $this->setListOfFiles();
@@ -46,7 +47,7 @@ class Loader
         $this->namespace =
             (has_filter('inrage/blocks/namespace')
                 ? apply_filters('inrage/blocks/namespace', rtrim($this->namespace))
-                : 'App\Blocks');
+                : 'App\\' . $this->directoryClassname);
     }
 
     /**
@@ -57,7 +58,7 @@ class Loader
     protected function setPath()
     {
         $reflection = new \ReflectionClass('App\Controllers\App');
-        $blockPath = str_replace('Controllers', 'Blocks', $reflection->getFileName());
+        $blockPath = str_replace('Controllers', $this->directoryClassname, $reflection->getFileName());
         $this->path = dirname($blockPath);
     }
 
@@ -85,7 +86,7 @@ class Loader
             }
 
             // Exclude non-Controller classes
-            if (!Utils::doesFileContain($filename, 'extends Block')) {
+            if (!Utils::doesFileContain($filename, 'extends ' . $this->directoryClassname)) {
                 continue;
             }
 
@@ -115,5 +116,10 @@ class Loader
     public function getClassesToRun()
     {
         return $this->classesToRun;
+    }
+
+    private function setDirectoryClassname($directoryClassname)
+    {
+        $this->directoryClassname = $directoryClassname;
     }
 }
